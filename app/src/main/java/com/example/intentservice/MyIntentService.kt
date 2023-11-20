@@ -4,19 +4,17 @@ import android.app.IntentService
 import android.content.Intent
 import android.util.Log
 
-class MyIntentService : IntentService("IntentService") {
-    init {
-        instance = this
-    }
-
+class MyIntentService : IntentService("MyIntentService") {
     companion object {
-        private lateinit var instance: MyIntentService
+        private var instance: MyIntentService? = null
         var isRunning = false
 
         fun stopService() {
-            Log.d("IntentService", "Service is stopping...")
-            isRunning = false
-            instance.stopSelf()
+            instance?.let {
+                Log.d("IntentService", "Service is stopping...")
+                isRunning = false
+                it.stopSelf()
+            }
         }
     }
 
@@ -26,7 +24,6 @@ class MyIntentService : IntentService("IntentService") {
             while (isRunning) {
                 Log.d("IntentService", "Service is running...")
                 Thread.sleep(1000)
-
             }
         } catch (e: InterruptedException) {
             Thread.currentThread().interrupt()

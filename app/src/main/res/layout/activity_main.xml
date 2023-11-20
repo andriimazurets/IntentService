@@ -38,5 +38,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnStartService" />
 
+    <EditText
+        android:id="@+id/etData"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Data String"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/tvServiceInfo"
+        app:layout_constraintStart_toStartOf="@id/tvServiceInfo"
+        app:layout_constraintTop_toBottomOf="@+id/btnStartService" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSendData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send Data"
+        app:layout_constraintEnd_toEndOf="@+id/etData"
+        app:layout_constraintTop_toBottomOf="@+id/etData" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
